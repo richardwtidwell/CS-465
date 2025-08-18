@@ -31,6 +31,29 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Enable CORS
+app.use('/api', (req, res, next) => {
+  const allowed = new Set([
+    'http://localhost:4200',
+    'http://127.0.0.1:4200',
+    'http://10.0.0.175:4200'
+  ]);
+  const origin = req.headers.origin;
+  if (origin && allowed.has(origin)) {
+    res.header('Access-Control-Allow-Origin', origin);
+  }
+  res.header(
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type, Accept'
+  );
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, OPTIONS');
+  if (req.method === 'OPTIONS') {
+    return res.sendStatus(204);
+  }
+  next();
+});
+
+
 // ────────────────────────────────────────────────
 // routes
 app.use('/', indexRouter);

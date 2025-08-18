@@ -1,0 +1,10 @@
+<!-- <pre>{{trips | json}}</pre> -->
+<div>
+	<button (click)="addTrip()" class="btn btn-info">Add Trip</button>
+	<p class="mt-3" *ngIf="message">{{ message }}</p>
+</div>
+<div class="row g-4">
+	<div class="col-md-4" *ngFor="let trip of trips">
+        <app-trip-card [trip]="trip" class="card-deck mt-2"></app-trip-card>
+	</div>
+ </div>
