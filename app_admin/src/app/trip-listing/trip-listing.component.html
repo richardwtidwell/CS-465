@@ -1,0 +1,16 @@
+<!-- Status/message to help debug loading issues -->
+<p *ngIf="message" class="mt-2 small text-muted">{{ message }}</p>
+
+<div>
+	<button (click)="addTrip()" class="btn btn-info">Add Trip</button>
+</div>
+
+<div class="row" *ngIf="trips.length > 0; else noTrips">
+	<div *ngFor="let trip of trips" class="col-3">
+		<app-trip-card [trip]="trip" class="card-deck mt-2"></app-trip-card>
+	</div>
+</div>
+
+<ng-template #noTrips>
+	<div class="alert alert-info p-2 mt-2">No trips to display.</div>
+</ng-template>

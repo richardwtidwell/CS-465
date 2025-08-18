@@ -1,0 +1,67 @@
+/* Horizontal scrolling card list */
+.row.flex-nowrap {
+	scrollbar-width: thin;
+	scrollbar-color: #999 transparent;
+}
+
+.row.flex-nowrap::-webkit-scrollbar {
+	height: 8px;
+}
+.row.flex-nowrap::-webkit-scrollbar-track {
+	background: transparent;
+}
+.row.flex-nowrap::-webkit-scrollbar-thumb {
+	background: #bbb;
+	border-radius: 4px;
+}
+.row.flex-nowrap::-webkit-scrollbar-thumb:hover {
+	background: #999;
+}
+
+/* Card base */
+.trip-card {
+	width: 18rem;
+	min-width: 18rem; /* ensure horizontal layout */
+	display: flex;
+	flex-direction: column;
+	box-shadow: 0 2px 4px rgba(0,0,0,.06);
+	transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.trip-card:hover {
+	transform: translateY(-4px);
+	box-shadow: 0 6px 18px -4px rgba(0,0,0,.18);
+}
+
+.trip-card-header {
+	font-size: .8rem;
+	font-weight: 600;
+	background: linear-gradient(135deg,#f8f9fa 0%,#e9ecef 100%);
+	border-bottom: 1px solid #dee2e6;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+/* Image */
+.trip-image {
+	height: 130px;
+	object-fit: cover;
+	border-bottom: 1px solid #dee2e6;
+}
+
+/* Description scroll area */
+.trip-description {
+	line-height: 1.15rem;
+	overflow-y: auto;
+	max-height: 220px;
+	padding-right: .25rem;
+}
+.trip-description::-webkit-scrollbar { width: 6px; }
+.trip-description::-webkit-scrollbar-track { background: transparent; }
+.trip-description::-webkit-scrollbar-thumb { background: #ccc; border-radius: 3px; }
+.trip-description::-webkit-scrollbar-thumb:hover { background: #999; }
+
+@media (max-width: 575.98px) {
+	.trip-description { max-height: 140px; }
+}
