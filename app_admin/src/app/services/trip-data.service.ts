@@ -24,6 +24,11 @@ export class TripDataService {
     return this.http.get<Trip[]>(url);
   }
 
+  getTripById(tripId: string): Observable<Trip> {
+    const url = `${this.baseUrl}/trips/id/${tripId}`;
+    return this.http.get<Trip>(url);
+  }
+
   addTrip(trip: Partial<Trip>): Observable<Trip> {
     const url = `${this.baseUrl}/trips`;
     return this.http.post<Trip>(url, trip);

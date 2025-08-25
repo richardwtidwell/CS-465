@@ -1,0 +1,30 @@
+<form #f="ngForm" (ngSubmit)="onSubmit(f)" *ngIf="model">
+  <label>Code</label>
+  <input name="code" [(ngModel)]="model.code" required />
+
+  <label>Name</label>
+  <input name="name" [(ngModel)]="model.name" required />
+
+  <label>Length</label>
+  <input name="length" [(ngModel)]="model.length" required />
+
+  <label>Start</label>
+  <input name="start" [(ngModel)]="model.start" required type="date" />
+
+  <label>Resort</label>
+  <input name="resort" [(ngModel)]="model.resort" required />
+
+  <label>Per Person</label>
+  <input name="perPerson" [(ngModel)]="model.perPerson" required />
+
+  <label>Image</label>
+  <input name="image" [(ngModel)]="model.image" required />
+
+  <label>Description</label>
+  <textarea name="description" [(ngModel)]="model.description" required></textarea>
+
+  <div class="actions">
+    <button type="submit">Update Trip</button>
+  </div>
+</form>
+

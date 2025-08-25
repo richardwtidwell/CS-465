@@ -26,10 +26,28 @@ const tripsFindByCode = async (req, res) => {
     }
 };
 
+// GET: /trips/id/:tripId - return a single trip by Mongo _id
+const tripsFindById = async (req, res) => {
+    const { tripId } = req.params || {};
+    if (!tripId) {
+        return res.status(400).json({ message: 'tripId parameter required' });
+    }
+    try {
+        const q = await Model.findById(tripId).exec();
+        if (!q) {
+            return res.status(404).json({ message: 'Trip not found' });
+        }
+        return res.status(200).json(q);
+    } catch (err) {
+        return res.status(500).json(err);
+    }
+};
+
 
 module.exports = {
     tripsList,
     tripsFindByCode,
+    tripsFindById,
     // POST: /trips – create a new trip (protected)
     tripsAddTrip: async (req, res) => {
         try {

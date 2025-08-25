@@ -30,6 +30,10 @@ router.route("/trips")
 router.route("/trips/:tripCode")
   .get(tripsController.tripsFindByCode);
 
+// Get Trip by ID
+router.route('/trips/id/:tripId')
+  .get(tripsController.tripsFindById);
+
 // Update Trip (protected)
 router.route('/trips/:tripId')
   .put(authenticateJWT, tripsController.tripsUpdateTrip);
