@@ -1,1 +1,29 @@
-<p>add-trip works!</p>
+<form #f="ngForm" (ngSubmit)="onSubmit(f)">
+  <label>Code</label>
+  <input name="code" ngModel required />
+
+  <label>Name</label>
+  <input name="name" ngModel required />
+
+  <label>Length</label>
+  <input name="length" ngModel required />
+
+  <label>Start</label>
+  <input name="start" ngModel required type="date" />
+
+  <label>Resort</label>
+  <input name="resort" ngModel required />
+
+  <label>Per Person</label>
+  <input name="perPerson" ngModel required />
+
+  <label>Image</label>
+  <input name="image" ngModel required />
+
+  <label>Description</label>
+  <textarea name="description" ngModel required></textarea>
+
+  <div class="actions">
+    <button type="submit">Save Trip</button>
+  </div>
+</form>

@@ -43,4 +43,9 @@ export class TripListingComponent implements OnInit {
         }
       });
   }
+
+  addTrip(): void {
+    // Placeholder: navigate to add-trip or open a modal in future
+    this.message = 'Add Trip clicked';
+  }
 }

@@ -1,0 +1,8 @@
+<nav class="navbar">
+  <a routerLink="/" class="brand">Travlr</a>
+  <ul class="nav">
+    <li *ngIf="auth.isLoggedIn()"><a routerLink="/add-trip">Add Trip</a></li>
+    <li *ngIf="!auth.isLoggedIn()"><a routerLink="/login">Login</a></li>
+    <li *ngIf="auth.isLoggedIn()"><a (click)="logout()">Logout</a></li>
+  </ul>
+</nav>
